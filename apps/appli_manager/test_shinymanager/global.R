@@ -12,12 +12,13 @@
 library(shiny)
 library(shinymanager)
 
-library(keyring)
- #key_set("R-shinymanager-key", "obiwankenobi")
+# library(keyring)
+# keyring_create("R-shinymanager-key")
+# key_set_with_value("shinymanager-key", "obiwankenobi",password="Tsuki",keyring = "R-shinymanager-key")
 
 # shinymanager::create_db(
 #   credentials_data = credentials,
 #   sqlite_path = "apps/appli_manager/test_shinymanager/database.sqlite", # will be created
-#   passphrase = key_get("R-shinymanager-key", "obiwankenobi")
+#   passphrase = key_get("shinymanager-key", "obiwankenobi",keyring="R-shinymanager-key")
 #   # passphrase = "passphrase_wihtout_keyring"
 # )

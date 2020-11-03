@@ -3,7 +3,7 @@ function(input, output, session) {
   res_auth <- secure_server(
     check_credentials = check_credentials(
       "database.sqlite",
-      passphrase = key_get("R-shinymanager-key", "obiwankenobi")
+      passphrase = key_get("shinymanager-key", "obiwankenobi",keyring="R-shinymanager-key")
       # passphrase = "passphrase_wihtout_keyring"
     )
   )

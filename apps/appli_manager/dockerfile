@@ -5,15 +5,21 @@ MAINTAINER Rozenn Gazan "rozenn.gazan@ms-nutrition.com"
 RUN apt-get update && \
     apt-get install -y r-cran-rjava
 
-RUN R -e "install.packages(c('shinymanager'))"
 
 RUN apt-get update && \
-    apt-get install -y git r-cran-devtools
+    apt-get install -y git r-cran-devtools libsecret-1-dev libsodium-dev
+
+
+RUN R -e "install.packages(c('shinymanager','keyring'))"
 
 COPY test_shinymanager/ /root/test_shinymanager/
 
 RUN echo "local({options(shiny.port = 3838, shiny.host = '0.0.0.0')})" >> /usr/lib/R/etc/Rprofile.site
 
 EXPOSE 3838
+
+CMD ["R", "-e", "library(keyring);
+keyring_create('R-shinymanager-key')
+key_set_with_value('shinymanager-key', 'obiwankenobi',password='Tsuki',keyring = 'R-shinymanager-key')
 
 CMD ["R", "-e", "shiny::runApp('/root/test_shinymanager')"]
