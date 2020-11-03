@@ -7,15 +7,7 @@ proxy:
   heartbeat-rate: 10000
   heartbeat-timeout: 60000
 
-  authentication: simple
-
-  admin-groups: admins
-  users:
-  - name: jack
-    password: password
-    groups: admins
-  - name: jeff
-    password: password
+  authentication: none
 
   docker:
       internal-networking: true
