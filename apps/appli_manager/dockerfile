@@ -1,0 +1,19 @@
+FROM davidgohel/r4-baseapp:v1
+
+MAINTAINER Rozenn Gazan "rozenn.gazan@ms-nutrition.com"
+
+RUN apt-get update && \
+    apt-get install -y r-cran-rjava
+
+RUN R -e "install.packages(c('shinymanager'))"
+
+RUN apt-get update && \
+    apt-get install -y git r-cran-devtools
+
+COPY test_shinymanager/ /root/test_shinymanager/
+
+RUN echo "local({options(shiny.port = 3838, shiny.host = '0.0.0.0')})" >> /usr/lib/R/etc/Rprofile.site
+
+EXPOSE 3838
+
+CMD ["R", "-e", "shiny::runApp('/root/test_shinymanager')"]
