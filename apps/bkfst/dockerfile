@@ -1,0 +1,19 @@
+FROM davidgohel/r4-baseapp:v1
+
+MAINTAINER Rozenn Gazan "rozenn.gazan@ms-nutrition.com"
+
+RUN apt-get update && \
+    apt-get install -y r-cran-rjava
+
+RUN R -e "install.packages(c('shiny','shinyjs','dplyr','purrr','tidyverse','ggplot2','ggiraph','ggthemes','shinyWidgets','htmlwidgets','xlsx','stringi','shinyjs','DT','rio','readxl','tibble'))"
+
+RUN apt-get update && \
+    apt-get install -y git r-cran-devtools
+
+COPY breakfast_demo/ /root/breakfast_demo/
+
+RUN echo "local({options(shiny.port = 3838, shiny.host = '0.0.0.0')})" >> /usr/lib/R/etc/Rprofile.site
+
+EXPOSE 3838
+
+CMD ["R", "-e", "shiny::runApp('/root/breakfast_demo')"]

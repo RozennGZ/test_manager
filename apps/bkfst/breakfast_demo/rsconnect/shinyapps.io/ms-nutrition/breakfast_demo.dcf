@@ -1,0 +1,10 @@
+name: breakfast_demo
+title:
+username:
+account: ms-nutrition
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 713121
+bundleId: 1953412
+url: https://ms-nutrition.shinyapps.io/breakfast_demo/
+when: 1553102424.2471

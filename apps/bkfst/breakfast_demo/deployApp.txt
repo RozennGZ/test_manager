@@ -1,0 +1,21 @@
+# install.packages("devtools")
+# install.packages("RCurl")
+library(devtools)
+library(RCurl)
+
+# devtools::install_github('rstudio/shinyapps')
+# devtools::install_github('rstudio/rsconnect',force=TRUE)
+# install.packages('rsconnect')
+# TEST APPLi
+library(shiny)
+library(rsconnect)
+
+rsconnect::setAccountInfo(name='ms-nutrition',
+                          token='B52FC353EEA24897618802E2FFF08EB5',
+                          secret='CBIKFUHSBOrmiEi8nmQ/xbWP16ffniomw1aPrk34')
+
+
+
+deployApp("C:/Users/Darmon/Documents/ROMANE/Shiny applis/Nestlé petits dej/breakfast_demo")
+
+#change a path
