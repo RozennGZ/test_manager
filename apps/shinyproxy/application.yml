@@ -23,7 +23,7 @@ proxy:
     display-name: breakfast application
     description: Make your breakfast
     container-cmd: ["R", "-e", "shiny::runApp('/root/breakfast_demo')"]
-    container-image: rzngzn/bkfst
+    container-image: rzngzn/bkfst:latest
     container-network: sp-net
 
 logging:
