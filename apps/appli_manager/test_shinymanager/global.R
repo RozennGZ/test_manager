@@ -12,7 +12,7 @@
 library(shiny)
 library(shinymanager)
 
-library(keyring)
+#library(keyring)
 # keyring_create("R-shinymanager-key")
 # key_set_with_value(service="shinymanager-key",password="Tsuki", username="obiwankenobi",keyring = "R-shinymanager-key")
 # 

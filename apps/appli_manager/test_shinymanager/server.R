@@ -4,9 +4,9 @@ function(input, output, session) {
 
     check_credentials = check_credentials(
       "database.sqlite",
-      passphrase = keyring::key_get(service="shinymanager-key", username="obiwankenobi",keyring="R-shinymanager-key")
+      passphrase = "Tsuki")
     )
-  )
+  
   
   output$auth_output <- renderPrint({
     reactiveValuesToList(res_auth)
