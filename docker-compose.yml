@@ -29,7 +29,8 @@ services:
   shinyproxy:
     image: rzngzn/shinyproxy_manager:v1.001
     depends_on:
-      - shinyapp
+      - shinytest
+      - breakfast
     container_name: shinyproxy
     expose:
       - 8080
@@ -40,7 +41,7 @@ services:
       - ./shinyproxy-logs/container:/container-logs
     networks:
       - sp-net
-  apptest:
+  shinytest:
     image: rzngzn/test_shinymanager:v0
   breakfast:
     image: rzngzn/bkfst:latest
