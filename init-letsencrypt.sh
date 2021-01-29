@@ -9,7 +9,7 @@ domains=(app.nutrition-quantitative.com)
 rsa_key_size=4096
 data_path="./data/certbot"
 email="rozenn.gazan@ms-nutrition.com" # L'ajout d'une adresse valide est fortement recommandé
-staging=0 # mettre a 1 pour éviter d'atteindre les limites de demande si vous testez votre configuration
+staging=1 # mettre a 1 pour éviter d'atteindre les limites de demande si vous testez votre configuration
 
 if [ -d "$data_path" ]; then
   read -p "Existing data found for $domains. Continue and replace existing certificate? (y/N) " decision
