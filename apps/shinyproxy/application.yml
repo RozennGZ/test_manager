@@ -6,7 +6,7 @@ proxy:
   container-wait-time: 30000
   heartbeat-rate: 10000
   heartbeat-timeout: 60000
-  container-log-path: ./container-logs
+  container-log-path: /container-logs
 
   authentication: none
 
@@ -29,6 +29,6 @@ proxy:
 
 logging:
   file:
-    ./shinyproxy.log
+    /log/shinyproxy.log
 
 
