@@ -10,6 +10,8 @@ proxy:
 
   authentication: none
 
+  docker:
+    internal-networking: true
 
   specs:
   - id: test_manager
