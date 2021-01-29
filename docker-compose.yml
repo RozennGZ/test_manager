@@ -40,8 +40,9 @@ services:
       - ./shinyproxy-logs/container:/container-logs
     networks:
       - sp-net
-  shinyapp:
+  apptest:
     image: rzngzn/test_shinymanager:v0
+  breakfast:
     image: rzngzn/bkfst:latest
 
 networks:
