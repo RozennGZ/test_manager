@@ -5,10 +5,7 @@ MAINTAINER Rozenn Gazan "rozenn.gazan@ms-nutrition.com"
 RUN apt-get update && \
     apt-get install -y r-cran-rjava
 
-RUN R -e "install.packages(c('shiny','shinyjs','dplyr','purrr','tidyverse','ggplot2','ggiraph','ggthemes','shinyWidgets','htmlwidgets','xlsx','stringi','shinyjs','DT','rio','readxl','tibble'))"
-
-RUN apt-get update && \
-    apt-get install -y git r-cran-devtools
+RUN R -e "install.packages(c('shiny','devtools','shinyjs','dplyr','purrr','tidyverse','plyr','ggplot2','ggiraph','ggthemes','shinyWidgets','htmlwidgets','xlsx','stringi','shinyjs','DT','rio','readxl','tibble'))"
 
 COPY breakfast_demo/ /root/breakfast_demo/
 
