@@ -6,7 +6,7 @@ RUN apt-get update && \
     apt-get install -y r-cran-rjava
 
 
-RUN R -e "install.packages(c('shinymanager'))"
+RUN R -e "install.packages(c('shinymanager','shiny'))"
 
 COPY test_shinymanager/ /root/test_shinymanager/
 
