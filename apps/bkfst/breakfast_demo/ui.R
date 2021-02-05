@@ -46,7 +46,7 @@ fluidPage(shinyjs::useShinyjs(),
 ################################################################ Page 1 : Importation des données ######################################################################
 
                   
- tabPanel(title=h4("Import databases TOTO TUTU"),value="data",
+ tabPanel(title=h4("Import databases TOTO"),value="data",
     fluidPage(   
 
       #Pannel 1 : Téléchargement du ficher
