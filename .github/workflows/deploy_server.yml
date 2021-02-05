@@ -13,10 +13,12 @@ jobs:
     steps:
       - name: Deploy to Docker Host
         uses: wshihadeh/docker-deployment-action@v1
+              garygrossgarten/github-action-ssh@release
         with:
           remote_docker_host: ubuntu@51.68.88.177
           ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
           ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
+          passphrase : ${{ secrets.DOCKER_SSH_PASSPHRASE }}
           deployment_mode: docker-compose
           copy_stack_file: true
           deploy_path: /root/my-deployment
