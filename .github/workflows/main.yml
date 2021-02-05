@@ -48,6 +48,6 @@ jobs:
           deploy_path: /root/my-deployment
           stack_file_name: docker-compose.yaml
           keep_files: 5
-        args: up -d
-          docker_prune: false
-          pull_images_first: false         
+          args: up -d
+          docker_prune: 'false'
+          pull_images_first: 'false'         
