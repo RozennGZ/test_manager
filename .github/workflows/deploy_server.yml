@@ -19,7 +19,7 @@ jobs:
           ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
           deployment_mode: docker-compose
           deploy_path: /home/ubuntu/test_manager
-          stack_file_name: /docker-compose.yml
+          stack_file_name: 'docker-compose.yml'
           copy_stack_file: true
           keep_files: 5
           args: up -d
