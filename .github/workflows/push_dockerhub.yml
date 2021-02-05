@@ -37,4 +37,3 @@ jobs:
           repository: rzngzn/bkfst
           tags: "latest"
           path: apps/bkfst
-          
