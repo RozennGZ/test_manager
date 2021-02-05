@@ -20,7 +20,7 @@ jobs:
           deployment_mode: docker-compose
           copy_stack_file: true
           deploy_path: /home/ubuntu/test_manager
-          stack_file_name: docker-compose.yaml
+          stack_file_name: docker-compose.yml
           keep_files: 5
           args: up -d
           docker_prune: 'false'
