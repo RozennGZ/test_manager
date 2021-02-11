@@ -31,4 +31,4 @@ jobs:
              cd test_manager
              chmod +x init-letsencrypt.sh
              sudo ./init-letsencrypt.sh
-             sudo docker-compose up
+             sudo docker-compose up -d
