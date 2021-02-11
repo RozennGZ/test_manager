@@ -9,19 +9,15 @@ jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'ci skip')"
+    if: "!contains(github.event.head_commit.message, 'ci skip')" 
     steps:
-      - name: Deploy to Docker Host
-        uses: wshihadeh/docker-deployment-action@v1
+      - name: multiple command
+        uses: appleboy/ssh-action@master
         with:
-          remote_docker_host: ubuntu@51.68.88.177
-          ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
-          ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
-          deployment_mode: docker-compose
-          deploy_path: /home/ubuntu/test_manager
-          stack_file_name: 'docker-compose.yml'
-          copy_stack_file: true
-          keep_files: 5
-          args: up -d
-          docker_prune: 'false'
-          pull_images_first: 'false'       
+           host: ubuntu@51.68.88.177
+           username: ${{ secrets.USERNAME }}
+           key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
+           port: 22
+           script: |
+             cd test_manager
+             sudo docker-compose down
