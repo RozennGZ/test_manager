@@ -21,3 +21,14 @@ jobs:
            script: |
              cd test_manager
              sudo docker-compose down
+             cd ..
+             sudo rm -r -f  test_manager
+             git clone  https://github.com/RozennGZ/test_manager.git
+             docker rm -f $(docker ps -a -q)
+             docker rmi -f $(docker images -a -q)
+             docker system prune -f
+             docker images purge
+             cd test_manager
+             chmod +x init-letsencrypt.sh
+             sudo ./init-letsencrypt.sh
+             sudo docker-compose up
