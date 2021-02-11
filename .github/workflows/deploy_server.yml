@@ -14,8 +14,8 @@ jobs:
       - name: multiple command
         uses: appleboy/ssh-action@master
         with:
-           host: ubuntu@51.68.88.177
-           username: ${{ secrets.USERNAME }}
+           host: 51.68.88.177
+           username: ubuntu
            key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
            port: 22
            script: |
