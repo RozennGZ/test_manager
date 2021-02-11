@@ -11,12 +11,13 @@ data_path="./data/certbot"
 email="rozenn.gazan@ms-nutrition.com" # L'ajout d'une adresse valide est fortement recommandé
 staging=1 # mettre a 1 pour éviter d'atteindre les limites de demande si vous testez votre configuration
 
-if [ -d "$data_path" ]; then
-  read -p "Existing data found for $domains. Continue and replace existing certificate? (y/N) " decision
-  if [ "$decision" != "Y" ] && [ "$decision" != "y" ]; then
-    exit
-  fi
-fi
+#RG : remove to be able to add new certificate in the workflow automatically
+# if [ -d "$data_path" ]; then
+#   read -p "Existing data found for $domains. Continue and replace existing certificate? (y/N) " decision
+#   if [ "$decision" != "Y" ] && [ "$decision" != "y" ]; then
+#     exit
+#   fi
+# fi
 
 
 if [ ! -e "$data_path/conf/options-ssl-nginx.conf" ] || [ ! -e "$data_path/conf/ssl-dhparams.pem" ]; then
@@ -58,10 +59,11 @@ for domain in "${domains[@]}"; do
 done
 
 # Select appropriate email arg
-case "$email" in
-  "") email_arg="--register-unsafely-without-email" ;;
-  *) email_arg="--email $email" ;;
-esac
+# case "$email" in
+#   "") email_arg="--register-unsafely-without-email" ;;
+#   *) email_arg="--email $email" ;;
+# esac
+
 
 # Enable staging mode if needed
 if [ $staging != "0" ]; then staging_arg="--staging"; fi
@@ -69,8 +71,8 @@ if [ $staging != "0" ]; then staging_arg="--staging"; fi
 docker-compose run --rm --entrypoint "\
   certbot certonly --webroot -w /var/www/certbot \
     $staging_arg \
-    $email_arg \
     $domain_args \
+    --register-unsafely-without-email \
     --rsa-key-size $rsa_key_size \
     --agree-tos \
     --force-renewal" certbot
