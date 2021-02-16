@@ -1,4 +1,3 @@
-#base: https://github.com/presstofan/shinyproxy-docker-compose-demo
 #!/bin/bash
 
 if ! [ -x "$(command -v docker-compose)" ]; then
@@ -14,7 +13,7 @@ staging=1 # mettre a 1 pour éviter d'atteindre les limites de demande si vous t
 
 #RG : remove to be able to add new certificate in the workflow automatically
 # if [ -d "$data_path" ]; then
-#   read -p "Existing data found for $domains. Continue and replace existing certificate? (y/N) " decision
+#  read -p "Existing data found for $domains. Continue and replace existing certificate? (y/N) " decision
 #   if [ "$decision" != "Y" ] && [ "$decision" != "y" ]; then
 #     exit
 #   fi
