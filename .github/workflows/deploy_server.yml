@@ -18,5 +18,5 @@ jobs:
            username: ${{ secrets.SERVER_USERNAME }}
            key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
            port: 22
-           script: |
-           ${{ secrets.SERVER_CMD_UPDATE_DOCKER }}
+           script: | 
+             ${{ secrets.SERVER_CMD_UPDATE_DOCKER }}
