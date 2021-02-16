@@ -9,15 +9,14 @@ jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'ci skip')" 
+    if: "contains(github.event.head_commit.message, 'deploy_serveur')" 
     steps:
       - name: multiple command
         uses: appleboy/ssh-action@master
         with:
-           host: 51.68.88.177
-           username: ubuntu
+           host: ${{ secrets.SERVER_HOST }}
+           username: ${{ secrets.SERVER_USERNAME }}
            key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
            port: 22
            script: |
-             cd test_manager
-             sudo docker-compose down
+              ${{ secrets.SERVER_CMD_UPDATE_DOCKER }}
